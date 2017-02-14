@@ -1,6 +1,6 @@
 {
   "name": "soulmate",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The most fast and stable javacript web framework.",
   "main": "server.js",
   "directories": {
@@ -12,7 +12,6 @@
     "clean": "rm -rf dist && rm -rf node_modules",
     "heroku-prebuild": "bash ./scripts/deployment_react.sh",
     "heroku-postbuild": "bash ./scripts/deployment_cleanup.sh",
-    "test": "mocha",
     "rebuild": "webpack -d --progress --colors",
     "watch": "webpack -d --progress --watch",
     "debug-server": "nodemon --debug server.js",
