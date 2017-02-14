@@ -1,19 +1,19 @@
 'use strict';
 
 require('dotenv').config({ silent: true });
-const express = require ('express');
-const logger = require ('morgan');
-const path = require ('path');
-const bodyParser = require ('body-parser');
+const express = require('express');
+const logger = require('morgan');
+const bodyParser = require('body-parser');
 const helmet = require('helmet');
 const colors = require('colors/safe');
+const path = require('path');
 
 colors.setTheme({
   info: ['white', 'bgBlack', 'underline', 'italic' ]
 });
 
 const server = express();
-const PORT = process.argv[2] || process.env.PORT || 3001;
+const PORT = process.argv[2] || process.env.PORT || 7000;
 
 server.use(logger('dev'));
 
