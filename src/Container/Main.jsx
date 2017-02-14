@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react';
-
+import Welcome from '../Components/Welcome/Welcome';
 import './Main.css'
 
 export default class Main extends React.Component {
@@ -19,7 +19,7 @@ export default class Main extends React.Component {
     render() {
         return (
           <div className="ui container">
-           <h1>Welcome soulmate javacript web framework</h1>
+           <Welcome />
            { this.props.children && React.cloneElement(this.props.children, {
 
            })}
