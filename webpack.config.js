@@ -5,14 +5,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const htmlTemplate      = require('html-webpack-template');
 
-const BUILD_DIR         = path.resolve(__dirname, 'dist');
+const BUILD_DIR         = path.resolve(__dirname, 'app');
 const APP_DIR           = path.resolve(__dirname, 'src');
 
 const config = {
   entry:  `${APP_DIR}/index.js`,
   output: {
     path:     BUILD_DIR,
-    filename: '/js/[name].js',
+    filename: 'assets/js/[name].js',
   },
   cache:   true,
   debug:   true,
@@ -31,13 +31,14 @@ const config = {
       },
     }),
     new HtmlWebpackPlugin({
-      title:      '',
+      title:      'soulmate',
       xhtml:      true,
       inject:     false,
       template:   htmlTemplate,
       appMountId: 'root-container',
+      filename:   'views/index.html',
     }),
-    new ExtractTextPlugin('/css/[name].css', {
+    new ExtractTextPlugin('assets/css/[name].css', {
       allChunks: true,
     }),
   ],
@@ -46,24 +47,28 @@ const config = {
     include: path.join(__dirname, 'src'),
     loaders: [
       { test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader') },
-      { test: /\.(png|gif|jpg)$/, loader: 'file-loader?name=/images/[name].[ext]' },
-      { test: /\.ico$/, loader: 'file-loader?name=/[name].[ext]' },
+      { test: /\.(png|gif|jpg)$/, loader: 'file-loader?name=assets/images/[name].[ext]' },
+      { test: /\.ico$/, loader: 'file-loader?name=assets/[name].[ext]' },
       { test: /\.jsx?$/, loader: 'babel' },
       {
+        test: /\.otf(\?v=\d+\.\d+\.\d+)?$/,
+        loader: 'file-loader?name=assets/fonts/[name].[ext]'
+      },
+      {
         test:   /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
-        loader: 'url-loader?limit=100&mimetype=application/font-woff&name=/fonts/[name].[ext]',
+        loader: 'url-loader?limit=100&mimetype=application/font-woff&name=assets/fonts/[name].[ext]',
       },
       {
         test:   /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
-        loader: 'url-loader?limit=100&mimetype=application/octet-stream&name=/fonts/[name].[ext]',
+        loader: 'url-loader?limit=100&mimetype=application/octet-stream&name=assets/fonts/[name].[ext]',
       },
       {
         test:   /\.eot(\?v=\d+\.\d+\.\d+)?$/,
-        loader: 'file-loader?name=/fonts/[name].[ext]',
+        loader: 'file-loader?name=assets/fonts/[name].[ext]',
       },
       {
         test:   /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-        loader: 'url-loader?limit=100&mimetype=image/svg+xml&name=/fonts/[name].[ext]',
+        loader: 'url-loader?limit=100&mimetype=image/svg+xml&name=assets/fonts/[name].[ext]',
       },
     ],
   },
