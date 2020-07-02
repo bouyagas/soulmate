@@ -37,7 +37,7 @@
   },
   "homepage": "https://github.com/soulMateJs/soulmate#readme",
   "dependencies": {
-    "bcrypt": "^1.0.2",
+    "bcrypt": "^5.0.0",
     "body-parser": "^1.16.1",
     "colors": "^1.1.2",
     "dotenv": "^4.0.0",
